@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="UI" GeneratedClassName="Settings1">
+  <Profiles />
+  <Settings>
+    <Setting Name="BackgrounGolor" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">WhiteSmoke</Value>
+    </Setting>
+    <Setting Name="UpColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">LightGreen</Value>
+    </Setting>
+    <Setting Name="DownColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">HotPink</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

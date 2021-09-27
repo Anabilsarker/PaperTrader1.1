@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{04C0BCC4-DCD2-4907-9A95-CAA827E772EE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Services</RootNamespace>
+    <AssemblyName>Services</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\General.cs" />
+    <Compile Include="Common\IRepository.cs" />
+    <Compile Include="Common\IValidation.cs" />
+    <Compile Include="Common\Repository.cs" />
+    <Compile Include="Common\Validation.cs" />
+    <Compile Include="Domain\ISecurityRepository.cs" />
+    <Compile Include="Domain\ISecurityValidation.cs" />
+    <Compile Include="Domain\IWatchRowRepository.cs" />
+    <Compile Include="Domain\IWatchRowValidation.cs" />
+    <Compile Include="Domain\SecurityServices.cs" />
+    <Compile Include="Domain\WatchRowServices.cs" />
+    <Compile Include="Miscellaneous\LoadFormServices.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ApiAccess\ApiAccess.csproj">
+      <Project>{7873dba4-3b74-4dcb-b98d-b011b1234c6b}</Project>
+      <Name>ApiAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppDatabase\AppDatabase.csproj">
+      <Project>{7e7d82fa-ff6a-4e9b-bc29-c13d33a29910}</Project>
+      <Name>AppDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{8a6b7530-5e2d-4b0b-910d-3853d65b31c0}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Views\Views.csproj">
+      <Project>{3240f5af-c297-4ef8-871a-af1331e16872}</Project>
+      <Name>Views</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
