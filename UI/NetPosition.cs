@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 using Domain.Models;
 
@@ -68,16 +69,17 @@ namespace UI
                 labelNQ.Text = "NET QTY:0";
                 labelNV.Text = "NET VAL:0";
                 labelMTM.Text = "MTM:0";
+                labelNQ.Width = (int)SystemParameters.PrimaryScreenWidth;
                 foreach (var netPositionRow in AppDatabase.Inventory.Instance().NetPosition)
                 {
 
                     labelBQ.Text = "BQ:" + (int.Parse(labelBQ.Text.Split(':')[1]) + netPositionRow.Net_Buy_Qty);
                     labelBV.Text = "BV:" + (double.Parse(labelBV.Text.Split(':')[1]) + netPositionRow.Net_Buy_Value);
 
-                    
+
                     labelSQ.Text = "SQ:" + (int.Parse(labelSQ.Text.Split(':')[1]) + netPositionRow.Net_Sell_Qty);
-                    labelSV.Text = "SV:" + (double.Parse(labelSV.Text.Split(':')[1]) +netPositionRow.Net_Sell_Value);
-                    
+                    labelSV.Text = "SV:" + (double.Parse(labelSV.Text.Split(':')[1]) + netPositionRow.Net_Sell_Value);
+
 
                     labelNQ.Text = "NET QTY:" + (int.Parse(labelSQ.Text.Split(':')[1]) + int.Parse(labelBQ.Text.Split(':')[1]));
                     labelNV.Text = "NET VAL:" + (double.Parse(labelSV.Text.Split(':')[1]) + double.Parse(labelBV.Text.Split(':')[1]));
@@ -88,7 +90,7 @@ namespace UI
             }
 
         }
-        
+
 
         private void NetPosition_Load(object sender, EventArgs e)
         {
@@ -101,24 +103,24 @@ namespace UI
                 WatchRow watchRow = AppDatabase.Inventory.Instance().watches.Where(item => item.TradingSymbol == tradingSYmbol).FirstOrDefault();
                 Security security = AppDatabase.Inventory.Instance().securities.Where(item => item.Description == tradingSYmbol).FirstOrDefault();
                 int netBuyQty = 0;
-                int netSellQty =0;
+                int netSellQty = 0;
                 double netBuyValue = 0;
                 double netSellValue = 0;
                 double avgSellPrice = 0;
                 double avgBuyPrice = 0;
-                foreach(var closedOrder in closedOrders)
+                foreach (var closedOrder in closedOrders)
                 {
-                    
-                    if(netPositionRow == null)
+
+                    if (netPositionRow == null)
                     {
                         netPositionRow = new NetPositionRow(closedOrder.User_Id, closedOrder.Account_Id, "", closedOrder.Exch_Segment, "", "", closedOrder.Option_Type, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, closedOrder.Trading_Symbol, "", closedOrder.Expiry_Date, closedOrder.Strike_Price);
                         AppDatabase.Inventory.Instance().NetPosition.Add(netPositionRow);
                     }
-                    if(closedOrder.Buy_Sell == "Buy")
+                    if (closedOrder.Buy_Sell == "Buy")
                     {
                         netBuyQty += closedOrder.Traded_Qty;
                         netBuyValue += closedOrder.Traded_Qty * closedOrder.Price;
-                        if(avgBuyPrice==0)
+                        if (avgBuyPrice == 0)
                         {
                             avgBuyPrice = closedOrder.Price;
                         }
@@ -128,7 +130,7 @@ namespace UI
                         }
 
                     }
-                    else if(closedOrder.Buy_Sell == "Sell")
+                    else if (closedOrder.Buy_Sell == "Sell")
                     {
                         netSellQty += closedOrder.Traded_Qty;
                         netSellValue += closedOrder.Traded_Qty * closedOrder.Price;
@@ -152,23 +154,25 @@ namespace UI
                 netPositionRow.Buy_Avg_Price = avgBuyPrice;
                 netPositionRow.Sell_Avg_Price = avgSellPrice;
                 //netPositionRow.Realized_MTM = -netBuyValue + netSellValue;
-                
-                if(netBuyQty >netSellQty)
+
+                if (netBuyQty > netSellQty)
                 {
                     netPositionRow.Realized_MTM = netSellQty * avgSellPrice - netSellQty * avgBuyPrice;
                     netPositionRow.Unrealized_MTM = Math.Abs(netBuyQty - netSellQty) * watchRow.BidPrice - Math.Abs(netBuyQty - netSellQty) * netPositionRow.Buy_Avg_Price;
                 }
-                else if(netSellQty>netBuyQty)
+                else if (netSellQty > netBuyQty)
                 {
                     netPositionRow.Realized_MTM = netBuyQty * avgSellPrice - netBuyQty * avgBuyPrice;
-                    netPositionRow.Unrealized_MTM = -Math.Abs(netBuyQty - netBuyQty) * watchRow.AskPrice + Math.Abs(netBuyQty - netSellQty)  * netPositionRow.Sell_Avg_Price;
+                    netPositionRow.Unrealized_MTM = -Math.Abs(netBuyQty - netBuyQty) * watchRow.AskPrice + Math.Abs(netBuyQty - netSellQty) * netPositionRow.Sell_Avg_Price;
                 }
-                else if(netBuyQty == netSellQty)
+                else if (netBuyQty == netSellQty)
                 {
                     netPositionRow.Realized_MTM = netBuyQty * avgSellPrice - netBuyQty * avgBuyPrice;
                     netPositionRow.Unrealized_MTM = 0;
                 }
                 netPositionRow.MTM = netPositionRow.Realized_MTM + netPositionRow.Unrealized_MTM;
+                dataGridViewNetPosition.AllowUserToResizeColumns = true;
+                dataGridViewNetPosition.RowHeadersWidth = 30;
                 dataGridViewNetPosition.Rows.Add(netPositionRow.User_Id,
         netPositionRow.Account_Id,
         netPositionRow.Exch_Segment,
@@ -198,7 +202,7 @@ namespace UI
 
         void GenerateColumns()
         {
-            foreach(var headerName in Enum.GetNames(typeof(NetPostionColumns)))
+            foreach (var headerName in Enum.GetNames(typeof(NetPostionColumns)))
             {
                 dataGridViewNetPosition.Columns.Add(headerName.Replace('_', '\0') + "Col", headerName.Replace('_', ' '));
             }
@@ -211,43 +215,60 @@ namespace UI
 
         private void buttonSquareOff_Click(object sender, EventArgs e)
         {
-            int diff = int.Parse(dataGridViewNetPosition.CurrentRow.Cells[(int)NetPostionColumns.Net_Buy_Qty].Value.ToString()) - int.Parse(dataGridViewNetPosition.CurrentRow.Cells[(int)NetPostionColumns.Net_Sell_Qty].Value.ToString());
-            NetPositionRow netPositionRow = AppDatabase.Inventory.Instance().NetPosition.Where(item => item.Trading_Symbol == dataGridViewNetPosition.CurrentRow.Cells[(int)NetPostionColumns.Trading_Symbol].Value.ToString()).FirstOrDefault();
-            if (diff!=0)
+            if (dataGridViewNetPosition.SelectedRows.Count == 0)
             {
-                if(!checkBoxSquareOffExact.Checked)
+                System.Windows.Forms.MessageBox.Show("Please Select a Position to Square Off");
+            }
+            else
+            {
+                int diff = int.Parse(dataGridViewNetPosition.CurrentRow.Cells[(int)NetPostionColumns.Net_Buy_Qty].Value.ToString()) - int.Parse(dataGridViewNetPosition.CurrentRow.Cells[(int)NetPostionColumns.Net_Sell_Qty].Value.ToString());
+                NetPositionRow netPositionRow = AppDatabase.Inventory.Instance().NetPosition.Where(item => item.Trading_Symbol == dataGridViewNetPosition.CurrentRow.Cells[(int)NetPostionColumns.Trading_Symbol].Value.ToString()).FirstOrDefault();
+                if (diff != 0)
                 {
-                    int qtyToadd = (int)(diff * double.Parse(textBoxQtyPer.Text) / 100);
-                    if (diff>0)
+                    if (!checkBoxSquareOffExact.Checked)
                     {
-                       
-                        netPositionRow.Net_Sell_Qty +=qtyToadd;
-                    }
-                    else 
-                    {
-                        netPositionRow.Net_Buy_Qty +=qtyToadd;
-                    }
-                }
-                else
-                {
-                    if(diff>0)
-                    {
-                        netPositionRow.Net_Sell_Qty += (int)double.Parse(textBoxQtyPer.Text);
-                        if(netPositionRow.Net_Sell_Qty>netPositionRow.Net_Buy_Qty)
+                        int qtyToadd = (int)(diff * double.Parse(textBoxQtyPer.Text) / 100);
+                        if (diff > 0)
                         {
-                            netPositionRow.Net_Sell_Qty = netPositionRow.Net_Buy_Qty;
+
+                            netPositionRow.Net_Sell_Qty += qtyToadd;
+                        }
+                        else
+                        {
+                            netPositionRow.Net_Buy_Qty += qtyToadd;
                         }
                     }
                     else
                     {
-                        netPositionRow.Net_Buy_Qty += (int)double.Parse(textBoxQtyPer.Text);
-                        if(netPositionRow.Net_Buy_Qty>netPositionRow.Net_Sell_Qty)
+                        if (diff > 0)
                         {
-                            netPositionRow.Net_Buy_Qty = netPositionRow.Net_Sell_Qty;
+                            netPositionRow.Net_Sell_Qty += (int)double.Parse(textBoxQtyPer.Text);
+                            if (netPositionRow.Net_Sell_Qty > netPositionRow.Net_Buy_Qty)
+                            {
+                                netPositionRow.Net_Sell_Qty = netPositionRow.Net_Buy_Qty;
+                            }
+                        }
+                        else
+                        {
+                            netPositionRow.Net_Buy_Qty += (int)double.Parse(textBoxQtyPer.Text);
+                            if (netPositionRow.Net_Buy_Qty > netPositionRow.Net_Sell_Qty)
+                            {
+                                netPositionRow.Net_Buy_Qty = netPositionRow.Net_Sell_Qty;
+                            }
                         }
                     }
                 }
             }
+        }
+
+        private void dataGridViewNetPosition_Scroll(object sender, ScrollEventArgs e)
+        {
+            
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

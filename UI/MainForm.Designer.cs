@@ -106,6 +106,16 @@ namespace UI
             this.orderAlertListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calculatorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nESTAutoPluginsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nestPlusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.whatIsNestPlusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.launchPlusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marketMonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marketMoversToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marketMoversDlgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.technicalResearchAndOptionCallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.plusRunningScriptsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutLoginWithNewPlusIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.beepAlertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tileWindowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,8 +126,6 @@ namespace UI
             this.connectionIndicationBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.securityCertificatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutNESTTraderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelDisplay = new System.Windows.Forms.Panel();
-            this.dataGridViewWatch = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripComboBoxSegment = new System.Windows.Forms.ToolStripComboBox();
@@ -129,8 +137,7 @@ namespace UI
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabelScript = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.inventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.buySellUserControl1 = new UI.BuySellUserControl();
+            this.dataGridViewWatch = new System.Windows.Forms.DataGridView();
             this.ExchangeInstrumentIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TradingSymbolColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BidQtyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -145,12 +152,20 @@ namespace UI
             this.HighColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LowColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PreCloseColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelDisplay = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.buySellUserControl1 = new UI.BuySellUserControl();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.inventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelHeader.SuspendLayout();
             this.menuStrip.SuspendLayout();
-            this.panelDisplay.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWatch)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWatch)).BeginInit();
+            this.panelDisplay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHeader
@@ -159,13 +174,14 @@ namespace UI
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1458, 32);
+            this.panelHeader.Size = new System.Drawing.Size(1458, 30);
             this.panelHeader.TabIndex = 0;
             // 
             // menuStrip
             // 
+            this.menuStrip.AutoSize = false;
             this.menuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(83)))), ((int)(((byte)(83)))));
-            this.menuStrip.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.marketToolStripMenuItem,
@@ -176,11 +192,12 @@ namespace UI
             this.surveilanceToolStripMenuItem,
             this.mastersToolStripMenuItem,
             this.toolsToolStripMenuItem,
+            this.nestPlusToolStripMenuItem,
             this.windowToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1458, 32);
+            this.menuStrip.Size = new System.Drawing.Size(1458, 30);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -202,7 +219,7 @@ namespace UI
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 28);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 26);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // loginToolStripMenuItem
@@ -291,7 +308,7 @@ namespace UI
             this.searchAddContactToolStripMenuItem});
             this.marketToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.marketToolStripMenuItem.Name = "marketToolStripMenuItem";
-            this.marketToolStripMenuItem.Size = new System.Drawing.Size(56, 28);
+            this.marketToolStripMenuItem.Size = new System.Drawing.Size(56, 26);
             this.marketToolStripMenuItem.Text = "Market";
             // 
             // maToolStripMenuItem
@@ -357,7 +374,7 @@ namespace UI
             this.tradePartialPositionConversionQueryToolStripMenuItem});
             this.ordersAndTradesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.ordersAndTradesToolStripMenuItem.Name = "ordersAndTradesToolStripMenuItem";
-            this.ordersAndTradesToolStripMenuItem.Size = new System.Drawing.Size(113, 28);
+            this.ordersAndTradesToolStripMenuItem.Size = new System.Drawing.Size(113, 26);
             this.ordersAndTradesToolStripMenuItem.Text = "Orders and Trades";
             // 
             // orderEntryToolStripMenuItem
@@ -427,7 +444,7 @@ namespace UI
             this.orderBookToolStripMenuItem});
             this.viewOrdersTreadeReportsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.viewOrdersTreadeReportsToolStripMenuItem.Name = "viewOrdersTreadeReportsToolStripMenuItem";
-            this.viewOrdersTreadeReportsToolStripMenuItem.Size = new System.Drawing.Size(164, 28);
+            this.viewOrdersTreadeReportsToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
             this.viewOrdersTreadeReportsToolStripMenuItem.Text = "View Orders/Treade Reports";
             // 
             // netPositionToolStripMenuItem
@@ -453,7 +470,7 @@ namespace UI
             this.payoutToolStripMenuItem});
             this.secureUrlsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.secureUrlsToolStripMenuItem.Name = "secureUrlsToolStripMenuItem";
-            this.secureUrlsToolStripMenuItem.Size = new System.Drawing.Size(77, 28);
+            this.secureUrlsToolStripMenuItem.Size = new System.Drawing.Size(77, 26);
             this.secureUrlsToolStripMenuItem.Text = "Secure Urls";
             // 
             // pAYINToolStripMenuItem
@@ -479,7 +496,7 @@ namespace UI
             this.toolBarToolStripMenuItem});
             this.preferencesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(80, 28);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             // 
             // shortcutManagerToolStripMenuItem
@@ -525,7 +542,7 @@ namespace UI
             this.rMSBanSymbolsToolStripMenuItem});
             this.surveilanceToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.surveilanceToolStripMenuItem.Name = "surveilanceToolStripMenuItem";
-            this.surveilanceToolStripMenuItem.Size = new System.Drawing.Size(79, 28);
+            this.surveilanceToolStripMenuItem.Size = new System.Drawing.Size(79, 26);
             this.surveilanceToolStripMenuItem.Text = "Surveilance";
             // 
             // rMSBanSymbolsToolStripMenuItem
@@ -542,7 +559,7 @@ namespace UI
             this.actionRightsToolStripMenuItem});
             this.mastersToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.mastersToolStripMenuItem.Name = "mastersToolStripMenuItem";
-            this.mastersToolStripMenuItem.Size = new System.Drawing.Size(60, 28);
+            this.mastersToolStripMenuItem.Size = new System.Drawing.Size(60, 26);
             this.mastersToolStripMenuItem.Text = "Masters";
             // 
             // adminPositionsToolStripMenuItem
@@ -576,7 +593,7 @@ namespace UI
             this.nESTAutoPluginsToolStripMenuItem});
             this.toolsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 28);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // whatIfAnalysisToolStripMenuItem
@@ -627,6 +644,77 @@ namespace UI
             this.nESTAutoPluginsToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.nESTAutoPluginsToolStripMenuItem.Text = "NEST Auto Plugins";
             // 
+            // nestPlusToolStripMenuItem
+            // 
+            this.nestPlusToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.whatIsNestPlusToolStripMenuItem,
+            this.launchPlusToolStripMenuItem,
+            this.marketMonitorToolStripMenuItem,
+            this.marketMoversToolStripMenuItem,
+            this.marketMoversDlgToolStripMenuItem,
+            this.technicalResearchAndOptionCallToolStripMenuItem,
+            this.plusRunningScriptsToolStripMenuItem,
+            this.logoutLoginWithNewPlusIDToolStripMenuItem,
+            this.beepAlertToolStripMenuItem});
+            this.nestPlusToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
+            this.nestPlusToolStripMenuItem.Name = "nestPlusToolStripMenuItem";
+            this.nestPlusToolStripMenuItem.Size = new System.Drawing.Size(76, 26);
+            this.nestPlusToolStripMenuItem.Text = "Nest Plus *";
+            // 
+            // whatIsNestPlusToolStripMenuItem
+            // 
+            this.whatIsNestPlusToolStripMenuItem.Name = "whatIsNestPlusToolStripMenuItem";
+            this.whatIsNestPlusToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.whatIsNestPlusToolStripMenuItem.Text = "What is NestPlus";
+            // 
+            // launchPlusToolStripMenuItem
+            // 
+            this.launchPlusToolStripMenuItem.Name = "launchPlusToolStripMenuItem";
+            this.launchPlusToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.launchPlusToolStripMenuItem.Text = "Launch Plus";
+            // 
+            // marketMonitorToolStripMenuItem
+            // 
+            this.marketMonitorToolStripMenuItem.Name = "marketMonitorToolStripMenuItem";
+            this.marketMonitorToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.marketMonitorToolStripMenuItem.Text = "Market Monitor";
+            // 
+            // marketMoversToolStripMenuItem
+            // 
+            this.marketMoversToolStripMenuItem.Name = "marketMoversToolStripMenuItem";
+            this.marketMoversToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.marketMoversToolStripMenuItem.Text = "Market Movers";
+            // 
+            // marketMoversDlgToolStripMenuItem
+            // 
+            this.marketMoversDlgToolStripMenuItem.Name = "marketMoversDlgToolStripMenuItem";
+            this.marketMoversDlgToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.marketMoversDlgToolStripMenuItem.Text = "Market Movers Dlg";
+            // 
+            // technicalResearchAndOptionCallToolStripMenuItem
+            // 
+            this.technicalResearchAndOptionCallToolStripMenuItem.Name = "technicalResearchAndOptionCallToolStripMenuItem";
+            this.technicalResearchAndOptionCallToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.technicalResearchAndOptionCallToolStripMenuItem.Text = "Technical, Research and Option Calls";
+            // 
+            // plusRunningScriptsToolStripMenuItem
+            // 
+            this.plusRunningScriptsToolStripMenuItem.Name = "plusRunningScriptsToolStripMenuItem";
+            this.plusRunningScriptsToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.plusRunningScriptsToolStripMenuItem.Text = "Plus Running Scripts";
+            // 
+            // logoutLoginWithNewPlusIDToolStripMenuItem
+            // 
+            this.logoutLoginWithNewPlusIDToolStripMenuItem.Name = "logoutLoginWithNewPlusIDToolStripMenuItem";
+            this.logoutLoginWithNewPlusIDToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.logoutLoginWithNewPlusIDToolStripMenuItem.Text = "Logout\\Login with new PlusID";
+            // 
+            // beepAlertToolStripMenuItem
+            // 
+            this.beepAlertToolStripMenuItem.Name = "beepAlertToolStripMenuItem";
+            this.beepAlertToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
+            this.beepAlertToolStripMenuItem.Text = "Beep Alert";
+            // 
             // windowToolStripMenuItem
             // 
             this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -635,7 +723,7 @@ namespace UI
             this.tileWindowsVerticallyToolStripMenuItem});
             this.windowToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
-            this.windowToolStripMenuItem.Size = new System.Drawing.Size(63, 28);
+            this.windowToolStripMenuItem.Size = new System.Drawing.Size(63, 26);
             this.windowToolStripMenuItem.Text = "Window";
             // 
             // cascadeToolStripMenuItem
@@ -666,7 +754,7 @@ namespace UI
             this.aboutNESTTraderToolStripMenuItem});
             this.helpToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Window;
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 28);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 26);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // updatesToolStripMenuItem
@@ -699,74 +787,9 @@ namespace UI
             this.aboutNESTTraderToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.aboutNESTTraderToolStripMenuItem.Text = "About NEST Trader";
             // 
-            // panelDisplay
-            // 
-            this.panelDisplay.Controls.Add(this.buySellUserControl1);
-            this.panelDisplay.Controls.Add(this.dataGridViewWatch);
-            this.panelDisplay.Controls.Add(this.toolStrip1);
-            this.panelDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDisplay.Location = new System.Drawing.Point(0, 32);
-            this.panelDisplay.Name = "panelDisplay";
-            this.panelDisplay.Size = new System.Drawing.Size(1458, 418);
-            this.panelDisplay.TabIndex = 1;
-            // 
-            // dataGridViewWatch
-            // 
-            this.dataGridViewWatch.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dataGridViewWatch.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewWatch.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewWatch.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewWatch.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewWatch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewWatch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ExchangeInstrumentIdColumn,
-            this.TradingSymbolColumn,
-            this.BidQtyColumn,
-            this.BidPriceColumn,
-            this.AskPriceColumn,
-            this.AskQtyColumn,
-            this.LTPColumn,
-            this.PercentChangeColumn,
-            this.ATPColumn,
-            this.VolumeColumn,
-            this.OpenColumn,
-            this.HighColumn,
-            this.LowColumn,
-            this.PreCloseColumn});
-            this.dataGridViewWatch.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewWatch.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dataGridViewWatch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewWatch.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridViewWatch.Location = new System.Drawing.Point(0, 44);
-            this.dataGridViewWatch.Name = "dataGridViewWatch";
-            this.dataGridViewWatch.ReadOnly = true;
-            this.dataGridViewWatch.RowHeadersVisible = false;
-            this.dataGridViewWatch.RowTemplate.ReadOnly = true;
-            this.dataGridViewWatch.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewWatch.Size = new System.Drawing.Size(1458, 374);
-            this.dataGridViewWatch.TabIndex = 1;
-            this.dataGridViewWatch.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWatch_CellContentClick);
-            this.dataGridViewWatch.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewWatch_CellFormatting);
-            this.dataGridViewWatch.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWatch_CellValueChanged);
-            this.dataGridViewWatch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewWatch_KeyDown);
-            // 
             // toolStrip1
             // 
+            this.toolStrip1.CanOverflow = false;
             this.toolStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBox1,
@@ -783,6 +806,7 @@ namespace UI
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 8, 1, 8);
             this.toolStrip1.Size = new System.Drawing.Size(1458, 44);
+            this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -864,19 +888,61 @@ namespace UI
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 28);
             // 
-            // inventoryBindingSource
+            // dataGridViewWatch
             // 
-            this.inventoryBindingSource.DataSource = typeof(AppDatabase.Inventory);
-            // 
-            // buySellUserControl1
-            // 
-            this.buySellUserControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buySellUserControl1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buySellUserControl1.Location = new System.Drawing.Point(289, 231);
-            this.buySellUserControl1.Name = "buySellUserControl1";
-            this.buySellUserControl1.Size = new System.Drawing.Size(1024, 136);
-            this.buySellUserControl1.TabIndex = 3;
-            this.buySellUserControl1.Visible = false;
+            this.dataGridViewWatch.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dataGridViewWatch.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewWatch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewWatch.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dataGridViewWatch.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewWatch.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewWatch.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewWatch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewWatch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ExchangeInstrumentIdColumn,
+            this.TradingSymbolColumn,
+            this.BidQtyColumn,
+            this.BidPriceColumn,
+            this.AskPriceColumn,
+            this.AskQtyColumn,
+            this.LTPColumn,
+            this.PercentChangeColumn,
+            this.ATPColumn,
+            this.VolumeColumn,
+            this.OpenColumn,
+            this.HighColumn,
+            this.LowColumn,
+            this.PreCloseColumn});
+            this.dataGridViewWatch.Cursor = System.Windows.Forms.Cursors.Default;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewWatch.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridViewWatch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewWatch.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dataGridViewWatch.Location = new System.Drawing.Point(0, 44);
+            this.dataGridViewWatch.Name = "dataGridViewWatch";
+            this.dataGridViewWatch.ReadOnly = true;
+            this.dataGridViewWatch.RowHeadersVisible = false;
+            this.dataGridViewWatch.RowTemplate.ReadOnly = true;
+            this.dataGridViewWatch.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewWatch.Size = new System.Drawing.Size(1458, 335);
+            this.dataGridViewWatch.TabIndex = 1;
+            this.dataGridViewWatch.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWatch_CellContentClick);
+            this.dataGridViewWatch.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWatch_CellValueChanged);
+            this.dataGridViewWatch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewWatch_KeyDown);
             // 
             // ExchangeInstrumentIdColumn
             // 
@@ -884,17 +950,17 @@ namespace UI
             this.ExchangeInstrumentIdColumn.Name = "ExchangeInstrumentIdColumn";
             this.ExchangeInstrumentIdColumn.ReadOnly = true;
             this.ExchangeInstrumentIdColumn.Visible = false;
-            this.ExchangeInstrumentIdColumn.Width = 170;
             // 
             // TradingSymbolColumn
             // 
+            this.TradingSymbolColumn.DividerWidth = 1;
             this.TradingSymbolColumn.HeaderText = "Trading Symbol";
             this.TradingSymbolColumn.Name = "TradingSymbolColumn";
             this.TradingSymbolColumn.ReadOnly = true;
-            this.TradingSymbolColumn.Width = 190;
             // 
             // BidQtyColumn
             // 
+            this.BidQtyColumn.DividerWidth = 1;
             this.BidQtyColumn.HeaderText = "Bid Qty";
             this.BidQtyColumn.Name = "BidQtyColumn";
             this.BidQtyColumn.ReadOnly = true;
@@ -904,6 +970,7 @@ namespace UI
             dataGridViewCellStyle3.Format = "N2";
             dataGridViewCellStyle3.NullValue = null;
             this.BidPriceColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.BidPriceColumn.DividerWidth = 1;
             this.BidPriceColumn.HeaderText = "Bid Price";
             this.BidPriceColumn.Name = "BidPriceColumn";
             this.BidPriceColumn.ReadOnly = true;
@@ -913,12 +980,14 @@ namespace UI
             dataGridViewCellStyle4.Format = "N2";
             dataGridViewCellStyle4.NullValue = null;
             this.AskPriceColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.AskPriceColumn.DividerWidth = 1;
             this.AskPriceColumn.HeaderText = "Ask Price";
             this.AskPriceColumn.Name = "AskPriceColumn";
             this.AskPriceColumn.ReadOnly = true;
             // 
             // AskQtyColumn
             // 
+            this.AskQtyColumn.DividerWidth = 1;
             this.AskQtyColumn.HeaderText = "Ask Qty";
             this.AskQtyColumn.Name = "AskQtyColumn";
             this.AskQtyColumn.ReadOnly = true;
@@ -928,6 +997,7 @@ namespace UI
             dataGridViewCellStyle5.Format = "N2";
             dataGridViewCellStyle5.NullValue = null;
             this.LTPColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.LTPColumn.DividerWidth = 1;
             this.LTPColumn.HeaderText = "LTP";
             this.LTPColumn.Name = "LTPColumn";
             this.LTPColumn.ReadOnly = true;
@@ -937,6 +1007,7 @@ namespace UI
             dataGridViewCellStyle6.Format = "N2";
             dataGridViewCellStyle6.NullValue = null;
             this.PercentChangeColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.PercentChangeColumn.DividerWidth = 1;
             this.PercentChangeColumn.HeaderText = "% Change";
             this.PercentChangeColumn.Name = "PercentChangeColumn";
             this.PercentChangeColumn.ReadOnly = true;
@@ -946,12 +1017,14 @@ namespace UI
             dataGridViewCellStyle7.Format = "N2";
             dataGridViewCellStyle7.NullValue = null;
             this.ATPColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ATPColumn.DividerWidth = 1;
             this.ATPColumn.HeaderText = "ATP";
             this.ATPColumn.Name = "ATPColumn";
             this.ATPColumn.ReadOnly = true;
             // 
             // VolumeColumn
             // 
+            this.VolumeColumn.DividerWidth = 1;
             this.VolumeColumn.HeaderText = "Volume";
             this.VolumeColumn.Name = "VolumeColumn";
             this.VolumeColumn.ReadOnly = true;
@@ -961,6 +1034,7 @@ namespace UI
             dataGridViewCellStyle8.Format = "N2";
             dataGridViewCellStyle8.NullValue = null;
             this.OpenColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            this.OpenColumn.DividerWidth = 1;
             this.OpenColumn.HeaderText = "Open";
             this.OpenColumn.Name = "OpenColumn";
             this.OpenColumn.ReadOnly = true;
@@ -970,6 +1044,7 @@ namespace UI
             dataGridViewCellStyle9.Format = "N2";
             dataGridViewCellStyle9.NullValue = null;
             this.HighColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            this.HighColumn.DividerWidth = 1;
             this.HighColumn.HeaderText = "High";
             this.HighColumn.Name = "HighColumn";
             this.HighColumn.ReadOnly = true;
@@ -979,6 +1054,7 @@ namespace UI
             dataGridViewCellStyle10.Format = "N2";
             dataGridViewCellStyle10.NullValue = null;
             this.LowColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            this.LowColumn.DividerWidth = 1;
             this.LowColumn.HeaderText = "Low";
             this.LowColumn.Name = "LowColumn";
             this.LowColumn.ReadOnly = true;
@@ -988,16 +1064,72 @@ namespace UI
             dataGridViewCellStyle11.Format = "N2";
             dataGridViewCellStyle11.NullValue = null;
             this.PreCloseColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            this.PreCloseColumn.DividerWidth = 1;
             this.PreCloseColumn.HeaderText = "Close";
             this.PreCloseColumn.Name = "PreCloseColumn";
             this.PreCloseColumn.ReadOnly = true;
+            // 
+            // panelDisplay
+            // 
+            this.panelDisplay.Controls.Add(this.checkBox1);
+            this.panelDisplay.Controls.Add(this.buySellUserControl1);
+            this.panelDisplay.Controls.Add(this.dataGridViewWatch);
+            this.panelDisplay.Controls.Add(this.toolStrip1);
+            this.panelDisplay.Location = new System.Drawing.Point(0, 62);
+            this.panelDisplay.Name = "panelDisplay";
+            this.panelDisplay.Size = new System.Drawing.Size(1458, 379);
+            this.panelDisplay.TabIndex = 1;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.Location = new System.Drawing.Point(1288, 15);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(169, 18);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "Advanced Search";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // buySellUserControl1
+            // 
+            this.buySellUserControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buySellUserControl1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buySellUserControl1.Location = new System.Drawing.Point(289, 211);
+            this.buySellUserControl1.Name = "buySellUserControl1";
+            this.buySellUserControl1.Size = new System.Drawing.Size(1024, 136);
+            this.buySellUserControl1.TabIndex = 3;
+            this.buySellUserControl1.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::UI.Properties.Resources.BarTitle;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(764, 34);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // inventoryBindingSource
+            // 
+            this.inventoryBindingSource.DataSource = typeof(AppDatabase.Inventory);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(1402, 29);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(56, 20);
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1458, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(83)))), ((int)(((byte)(83)))));
+            this.ClientSize = new System.Drawing.Size(1458, 441);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panelDisplay);
             this.Controls.Add(this.panelHeader);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1007,15 +1139,16 @@ namespace UI
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelHeader.ResumeLayout(false);
-            this.panelHeader.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            this.panelDisplay.ResumeLayout(false);
-            this.panelDisplay.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWatch)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWatch)).EndInit();
+            this.panelDisplay.ResumeLayout(false);
+            this.panelDisplay.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1035,26 +1168,7 @@ namespace UI
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.Panel panelDisplay;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        /// <summary>
-        /// Made Public 
-        /// </summary>
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxSegment;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxSymbol;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxExpiry;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxStrike;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxOptionType;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxInstrument;
-
-
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabelScript;
-        private System.Windows.Forms.DataGridView dataGridViewWatch;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.BindingSource inventoryBindingSource;
-        private BuySellUserControl buySellUserControl1;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
         private System.Windows.Forms.ToolStripMenuItem netPositionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem orderBookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
@@ -1115,6 +1229,33 @@ namespace UI
         private System.Windows.Forms.ToolStripMenuItem connectionIndicationBarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem securityCertificatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutNESTTraderToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxSegment;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxInstrument;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxSymbol;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxOptionType;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxStrike;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxExpiry;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabelScript;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.DataGridView dataGridViewWatch;
+        private BuySellUserControl buySellUserControl1;
+        private System.Windows.Forms.Panel panelDisplay;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolStripMenuItem nestPlusToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem whatIsNestPlusToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem launchPlusToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marketMonitorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marketMoversToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marketMoversDlgToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem technicalResearchAndOptionCallToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem plusRunningScriptsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logoutLoginWithNewPlusIDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem beepAlertToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExchangeInstrumentIdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TradingSymbolColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn BidQtyColumn;

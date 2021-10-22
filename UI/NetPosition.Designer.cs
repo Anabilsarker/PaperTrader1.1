@@ -29,25 +29,31 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NetPosition));
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxAccountName = new System.Windows.Forms.ComboBox();
-            this.comboBoxAccountId = new System.Windows.Forms.ComboBox();
-            this.comboBoxPro = new System.Windows.Forms.ComboBox();
             this.comboBoxProduct = new System.Windows.Forms.ComboBox();
             this.comboBoxSymbol = new System.Windows.Forms.ComboBox();
             this.comboBoxSegment = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMain = new System.Windows.Forms.Panel();
             this.dataGridViewNetPosition = new System.Windows.Forms.DataGridView();
             this.panelBottom = new System.Windows.Forms.Panel();
+            this.checkBoxSquareOff = new System.Windows.Forms.CheckBox();
             this.textBoxMktProt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -66,17 +72,25 @@ namespace UI
             this.labelSV = new System.Windows.Forms.Label();
             this.labelBV = new System.Windows.Forms.Label();
             this.labelBQ = new System.Windows.Forms.Label();
-            this.checkBoxSquareOff = new System.Windows.Forms.CheckBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panelHeader.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNetPosition)).BeginInit();
             this.panelBottom.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHeader
             // 
+            this.panelHeader.Controls.Add(this.comboBox1);
+            this.panelHeader.Controls.Add(this.label11);
+            this.panelHeader.Controls.Add(this.checkBox2);
+            this.panelHeader.Controls.Add(this.checkBox1);
+            this.panelHeader.Controls.Add(this.groupBox3);
+            this.panelHeader.Controls.Add(this.button1);
             this.panelHeader.Controls.Add(this.groupBox1);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
@@ -84,68 +98,118 @@ namespace UI
             this.panelHeader.Size = new System.Drawing.Size(1287, 70);
             this.panelHeader.TabIndex = 0;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(999, 33);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(87, 21);
+            this.comboBox1.TabIndex = 23;
+            this.comboBox1.Text = "NetWise";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(996, 13);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 13);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Daywise/Netwise";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox2.Location = new System.Drawing.Point(906, 31);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(90, 23);
+            this.checkBox2.TabIndex = 21;
+            this.checkBox2.Text = "Get Position";
+            this.checkBox2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(906, 12);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(93, 17);
+            this.checkBox1.TabIndex = 20;
+            this.checkBox1.Text = "Enable Button";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.radioButton2);
+            this.groupBox3.Controls.Add(this.radioButton1);
+            this.groupBox3.Location = new System.Drawing.Point(834, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(66, 61);
+            this.groupBox3.TabIndex = 19;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Positions";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(7, 34);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(52, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Detail";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(7, 14);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(58, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Overall";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1095, 31);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(81, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Position Conv";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.comboBoxAccountName);
-            this.groupBox1.Controls.Add(this.comboBoxAccountId);
-            this.groupBox1.Controls.Add(this.comboBoxPro);
             this.groupBox1.Controls.Add(this.comboBoxProduct);
             this.groupBox1.Controls.Add(this.comboBoxSymbol);
             this.groupBox1.Controls.Add(this.comboBoxSegment);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1160, 61);
+            this.groupBox1.Size = new System.Drawing.Size(829, 61);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter Options";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(910, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Position Conversion";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // comboBoxAccountName
             // 
+            this.comboBoxAccountName.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.comboBoxAccountName.FormattingEnabled = true;
-            this.comboBoxAccountName.Location = new System.Drawing.Point(734, 34);
+            this.comboBoxAccountName.Location = new System.Drawing.Point(472, 21);
             this.comboBoxAccountName.Name = "comboBoxAccountName";
-            this.comboBoxAccountName.Size = new System.Drawing.Size(127, 21);
+            this.comboBoxAccountName.Size = new System.Drawing.Size(305, 21);
             this.comboBoxAccountName.TabIndex = 11;
             this.comboBoxAccountName.Text = "(ALL)";
             // 
-            // comboBoxAccountId
-            // 
-            this.comboBoxAccountId.FormattingEnabled = true;
-            this.comboBoxAccountId.Location = new System.Drawing.Point(580, 34);
-            this.comboBoxAccountId.Name = "comboBoxAccountId";
-            this.comboBoxAccountId.Size = new System.Drawing.Size(137, 21);
-            this.comboBoxAccountId.TabIndex = 10;
-            this.comboBoxAccountId.Text = "(ALL)";
-            // 
-            // comboBoxPro
-            // 
-            this.comboBoxPro.FormattingEnabled = true;
-            this.comboBoxPro.Location = new System.Drawing.Point(496, 34);
-            this.comboBoxPro.Name = "comboBoxPro";
-            this.comboBoxPro.Size = new System.Drawing.Size(75, 21);
-            this.comboBoxPro.TabIndex = 9;
-            this.comboBoxPro.Text = "(ALL)";
-            // 
             // comboBoxProduct
             // 
+            this.comboBoxProduct.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.comboBoxProduct.FormattingEnabled = true;
-            this.comboBoxProduct.Location = new System.Drawing.Point(194, 19);
+            this.comboBoxProduct.Location = new System.Drawing.Point(185, 21);
             this.comboBoxProduct.Name = "comboBoxProduct";
             this.comboBoxProduct.Size = new System.Drawing.Size(74, 21);
             this.comboBoxProduct.TabIndex = 8;
@@ -153,8 +217,9 @@ namespace UI
             // 
             // comboBoxSymbol
             // 
+            this.comboBoxSymbol.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.comboBoxSymbol.FormattingEnabled = true;
-            this.comboBoxSymbol.Location = new System.Drawing.Point(327, 19);
+            this.comboBoxSymbol.Location = new System.Drawing.Point(312, 21);
             this.comboBoxSymbol.Name = "comboBoxSymbol";
             this.comboBoxSymbol.Size = new System.Drawing.Size(71, 21);
             this.comboBoxSymbol.TabIndex = 7;
@@ -162,44 +227,18 @@ namespace UI
             // 
             // comboBoxSegment
             // 
+            this.comboBoxSegment.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.comboBoxSegment.FormattingEnabled = true;
-            this.comboBoxSegment.Location = new System.Drawing.Point(9, 19);
+            this.comboBoxSegment.Location = new System.Drawing.Point(6, 21);
             this.comboBoxSegment.Name = "comboBoxSegment";
             this.comboBoxSegment.Size = new System.Drawing.Size(111, 21);
             this.comboBoxSegment.TabIndex = 6;
             this.comboBoxSegment.Text = "(ALL)";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(736, 18);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Account Name";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(577, 18);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Account Id";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(493, 18);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Pro/Cli";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(277, 22);
+            this.label3.Location = new System.Drawing.Point(265, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 2;
@@ -208,7 +247,7 @@ namespace UI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(404, 22);
+            this.label2.Location = new System.Drawing.Point(386, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 13);
             this.label2.TabIndex = 1;
@@ -217,7 +256,7 @@ namespace UI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(126, 22);
+            this.label1.Location = new System.Drawing.Point(117, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 0;
@@ -235,45 +274,76 @@ namespace UI
             // dataGridViewNetPosition
             // 
             this.dataGridViewNetPosition.AllowUserToAddRows = false;
+            this.dataGridViewNetPosition.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewNetPosition.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewNetPosition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewNetPosition.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewNetPosition.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewNetPosition.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewNetPosition.Name = "dataGridViewNetPosition";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewNetPosition.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewNetPosition.RowHeadersVisible = false;
+            this.dataGridViewNetPosition.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridViewNetPosition.Size = new System.Drawing.Size(1287, 380);
             this.dataGridViewNetPosition.TabIndex = 0;
+            this.dataGridViewNetPosition.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dataGridViewNetPosition_Scroll);
             // 
             // panelBottom
             // 
-            this.panelBottom.Controls.Add(this.checkBoxSquareOff);
-            this.panelBottom.Controls.Add(this.textBoxMktProt);
-            this.panelBottom.Controls.Add(this.label10);
-            this.panelBottom.Controls.Add(this.label9);
-            this.panelBottom.Controls.Add(this.textBoxPrice);
-            this.panelBottom.Controls.Add(this.textBoxQtyPer);
-            this.panelBottom.Controls.Add(this.label8);
-            this.panelBottom.Controls.Add(this.checkBoxSquareOffExact);
-            this.panelBottom.Controls.Add(this.comboBoxLongShort);
-            this.panelBottom.Controls.Add(this.label7);
-            this.panelBottom.Controls.Add(this.checkBoxValueOnAvgPrice);
+            this.panelBottom.Controls.Add(this.groupBox4);
             this.panelBottom.Controls.Add(this.groupBox2);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(0, 381);
+            this.panelBottom.Location = new System.Drawing.Point(0, 382);
             this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(1287, 69);
+            this.panelBottom.Size = new System.Drawing.Size(1287, 68);
             this.panelBottom.TabIndex = 3;
+            // 
+            // checkBoxSquareOff
+            // 
+            this.checkBoxSquareOff.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxSquareOff.AutoSize = true;
+            this.checkBoxSquareOff.Location = new System.Drawing.Point(507, 17);
+            this.checkBoxSquareOff.Name = "checkBoxSquareOff";
+            this.checkBoxSquareOff.Size = new System.Drawing.Size(68, 23);
+            this.checkBoxSquareOff.TabIndex = 18;
+            this.checkBoxSquareOff.Text = "Square Off";
+            this.checkBoxSquareOff.UseVisualStyleBackColor = true;
+            this.checkBoxSquareOff.CheckedChanged += new System.EventHandler(this.buttonSquareOff_Click);
             // 
             // textBoxMktProt
             // 
-            this.textBoxMktProt.Location = new System.Drawing.Point(751, 20);
+            this.textBoxMktProt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxMktProt.Location = new System.Drawing.Point(419, 20);
             this.textBoxMktProt.Name = "textBoxMktProt";
             this.textBoxMktProt.Size = new System.Drawing.Size(82, 20);
             this.textBoxMktProt.TabIndex = 16;
             // 
             // label10
             // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(748, 4);
+            this.label10.Location = new System.Drawing.Point(416, 4);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 13);
             this.label10.TabIndex = 15;
@@ -281,8 +351,9 @@ namespace UI
             // 
             // label9
             // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(660, 4);
+            this.label9.Location = new System.Drawing.Point(328, 4);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(31, 13);
             this.label9.TabIndex = 14;
@@ -290,7 +361,8 @@ namespace UI
             // 
             // textBoxPrice
             // 
-            this.textBoxPrice.Location = new System.Drawing.Point(663, 20);
+            this.textBoxPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxPrice.Location = new System.Drawing.Point(331, 20);
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(82, 20);
             this.textBoxPrice.TabIndex = 13;
@@ -299,7 +371,8 @@ namespace UI
             // 
             // textBoxQtyPer
             // 
-            this.textBoxQtyPer.Location = new System.Drawing.Point(575, 20);
+            this.textBoxQtyPer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxQtyPer.Location = new System.Drawing.Point(243, 20);
             this.textBoxQtyPer.Name = "textBoxQtyPer";
             this.textBoxQtyPer.Size = new System.Drawing.Size(82, 20);
             this.textBoxQtyPer.TabIndex = 12;
@@ -307,8 +380,9 @@ namespace UI
             // 
             // label8
             // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(572, 4);
+            this.label8.Location = new System.Drawing.Point(240, 4);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 13);
             this.label8.TabIndex = 11;
@@ -316,8 +390,9 @@ namespace UI
             // 
             // checkBoxSquareOffExact
             // 
+            this.checkBoxSquareOffExact.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxSquareOffExact.AutoSize = true;
-            this.checkBoxSquareOffExact.Location = new System.Drawing.Point(439, 23);
+            this.checkBoxSquareOffExact.Location = new System.Drawing.Point(107, 23);
             this.checkBoxSquareOffExact.Name = "checkBoxSquareOffExact";
             this.checkBoxSquareOffExact.Size = new System.Drawing.Size(126, 17);
             this.checkBoxSquareOffExact.TabIndex = 10;
@@ -326,21 +401,23 @@ namespace UI
             // 
             // comboBoxLongShort
             // 
+            this.comboBoxLongShort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxLongShort.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.comboBoxLongShort.FormattingEnabled = true;
             this.comboBoxLongShort.Items.AddRange(new object[] {
             "ALL",
             "SHORT",
             "LONG"});
-            this.comboBoxLongShort.Location = new System.Drawing.Point(347, 21);
+            this.comboBoxLongShort.Location = new System.Drawing.Point(15, 21);
             this.comboBoxLongShort.Name = "comboBoxLongShort";
             this.comboBoxLongShort.Size = new System.Drawing.Size(75, 21);
             this.comboBoxLongShort.TabIndex = 9;
             // 
             // label7
             // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(344, 5);
+            this.label7.Location = new System.Drawing.Point(12, 5);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 13);
             this.label7.TabIndex = 8;
@@ -349,8 +426,9 @@ namespace UI
             // 
             // checkBoxValueOnAvgPrice
             // 
+            this.checkBoxValueOnAvgPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxValueOnAvgPrice.AutoSize = true;
-            this.checkBoxValueOnAvgPrice.Location = new System.Drawing.Point(439, 5);
+            this.checkBoxValueOnAvgPrice.Location = new System.Drawing.Point(107, 5);
             this.checkBoxValueOnAvgPrice.Name = "checkBoxValueOnAvgPrice";
             this.checkBoxValueOnAvgPrice.Size = new System.Drawing.Size(119, 17);
             this.checkBoxValueOnAvgPrice.TabIndex = 7;
@@ -366,9 +444,9 @@ namespace UI
             this.groupBox2.Controls.Add(this.labelSV);
             this.groupBox2.Controls.Add(this.labelBV);
             this.groupBox2.Controls.Add(this.labelBQ);
-            this.groupBox2.Location = new System.Drawing.Point(12, 35);
+            this.groupBox2.Location = new System.Drawing.Point(0, 37);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1151, 26);
+            this.groupBox2.Size = new System.Drawing.Size(1287, 26);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             // 
@@ -387,8 +465,9 @@ namespace UI
             this.labelNQ.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labelNQ.ForeColor = System.Drawing.Color.Blue;
             this.labelNQ.Location = new System.Drawing.Point(942, 8);
+            this.labelNQ.Margin = new System.Windows.Forms.Padding(0);
             this.labelNQ.Name = "labelNQ";
-            this.labelNQ.Size = new System.Drawing.Size(150, 15);
+            this.labelNQ.Size = new System.Drawing.Size(345, 15);
             this.labelNQ.TabIndex = 5;
             this.labelNQ.Text = "NET QTY : 0";
             // 
@@ -442,17 +521,25 @@ namespace UI
             this.labelBQ.TabIndex = 0;
             this.labelBQ.Text = "BQ : 0";
             // 
-            // checkBoxSquareOff
+            // groupBox4
             // 
-            this.checkBoxSquareOff.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBoxSquareOff.AutoSize = true;
-            this.checkBoxSquareOff.Location = new System.Drawing.Point(859, 17);
-            this.checkBoxSquareOff.Name = "checkBoxSquareOff";
-            this.checkBoxSquareOff.Size = new System.Drawing.Size(68, 23);
-            this.checkBoxSquareOff.TabIndex = 18;
-            this.checkBoxSquareOff.Text = "Square Off";
-            this.checkBoxSquareOff.UseVisualStyleBackColor = true;
-            this.checkBoxSquareOff.CheckedChanged += new System.EventHandler(this.buttonSquareOff_Click);
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.comboBoxLongShort);
+            this.groupBox4.Controls.Add(this.checkBoxSquareOff);
+            this.groupBox4.Controls.Add(this.checkBoxValueOnAvgPrice);
+            this.groupBox4.Controls.Add(this.textBoxMktProt);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.checkBoxSquareOffExact);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.textBoxPrice);
+            this.groupBox4.Controls.Add(this.textBoxQtyPer);
+            this.groupBox4.Location = new System.Drawing.Point(579, 0);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(708, 42);
+            this.groupBox4.TabIndex = 19;
+            this.groupBox4.TabStop = false;
             // 
             // NetPosition
             // 
@@ -467,13 +554,17 @@ namespace UI
             this.Text = "AdminPosition";
             this.Load += new System.EventHandler(this.NetPosition_Load);
             this.panelHeader.ResumeLayout(false);
+            this.panelHeader.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panelMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNetPosition)).EndInit();
             this.panelBottom.ResumeLayout(false);
-            this.panelBottom.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -483,14 +574,9 @@ namespace UI
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBoxAccountName;
-        private System.Windows.Forms.ComboBox comboBoxAccountId;
-        private System.Windows.Forms.ComboBox comboBoxPro;
         private System.Windows.Forms.ComboBox comboBoxProduct;
         private System.Windows.Forms.ComboBox comboBoxSymbol;
         private System.Windows.Forms.ComboBox comboBoxSegment;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -517,5 +603,13 @@ namespace UI
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox checkBoxSquareOffExact;
         private System.Windows.Forms.CheckBox checkBoxSquareOff;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.GroupBox groupBox4;
     }
 }

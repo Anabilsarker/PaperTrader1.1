@@ -64,7 +64,6 @@
     <Compile Include="ConnectionToApi.cs" />
     <Compile Include="Data1.cs" />
     <Compile Include="MainClass.cs" />
-    <Compile Include="PayLoad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XTS.cs" />
   </ItemGroup>

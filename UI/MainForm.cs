@@ -22,8 +22,8 @@ namespace UI
 {
     public partial class MainForm : Form, IMainFormView
     {
+        WatchRow watchRow = new WatchRow();
         double high = 0, low = 0, bidqty = 0, bidprice = 0, askqty = 0, askprice = 0;
-        WatchRow watchRow;
         LoadingForm _loadingForm;
         WatchRowServices watchRowServices;
         SecurityServices securityServices;
@@ -179,179 +179,184 @@ namespace UI
         double oldValue;
         private void UpdateGrid(object data)
         {
-            _1502PktStructure _1502pkt = JsonConvert.DeserializeObject<_1502PktStructure>(data.ToString());
-            foreach (DataGridViewRow row in dataGridViewWatch.Rows)
+            try
             {
-
-                watchRow = AppDatabase.Inventory.Instance().watches.Where(item => item.TradingSymbol == row.Cells[(int)WatchRowColumns.TradingSymbol].Value.ToString()).FirstOrDefault();
-                if (int.Parse(row.Cells[(int)WatchRowColumns.ExchangeInstrumentId].Value.ToString()) == _1502pkt.ExchangeInstrumentID)
+                _1502PktStructure _1502pkt = new _1502PktStructure();
+                _1502pkt = JsonConvert.DeserializeObject<_1502PktStructure>(data.ToString());
+                foreach (DataGridViewRow row in dataGridViewWatch.Rows)
                 {
-                    try
+
+                    watchRow = AppDatabase.Inventory.Instance().watches.Where(item => item.TradingSymbol == row.Cells[(int)WatchRowColumns.TradingSymbol].Value.ToString()).FirstOrDefault();
+                    if (int.Parse(row.Cells[(int)WatchRowColumns.ExchangeInstrumentId].Value.ToString()) == _1502pkt.ExchangeInstrumentID)
                     {
+                        try
+                        {
 
-                        oldValue = double.Parse(row.Cells[(int)WatchRowColumns.BidQty].Value.ToString());
-                        watchRow.BidQty = _1502pkt.Touchline.BidInfo.Size;
+                            oldValue = double.Parse(row.Cells[(int)WatchRowColumns.BidQty].Value.ToString());
+                            watchRow.BidQty = _1502pkt.Touchline.BidInfo.Size;
+                        }
+                        catch
+                        {
+
+                        }
+
+                        row.Cells[(int)WatchRowColumns.BidQty].Value = _1502pkt.Touchline.BidInfo.Size;
+                        //bidqty = _1502pkt.Touchline.BidInfo.Size;
+                        try
+                        {
+                            oldValue = double.Parse(row.Cells[(int)WatchRowColumns.BidPrice].Value.ToString());
+                            watchRow.BidPrice = _1502pkt.Touchline.BidInfo.Price;
+                        }
+                        catch
+                        {
+
+                        }
+
+                        row.Cells[(int)WatchRowColumns.BidPrice].Value = _1502pkt.Touchline.BidInfo.Price;
+                        //bidprice = _1502pkt.Touchline.BidInfo.Price;
+                        try
+                        {
+                            oldValue = double.Parse(row.Cells[(int)WatchRowColumns.AskPrice].Value.ToString());
+                            watchRow.AskPrice = _1502pkt.Touchline.AskInfo.Price;
+                        }
+                        catch
+                        {
+
+                        }
+
+                        row.Cells[(int)WatchRowColumns.AskPrice].Value = _1502pkt.Touchline.AskInfo.Price;
+                        //askprice = _1502pkt.Touchline.AskInfo.Price;
+                        try
+                        {
+                            oldValue = double.Parse(row.Cells[(int)WatchRowColumns.AskQty].Value.ToString());
+                            watchRow.AskQty = _1502pkt.Touchline.AskInfo.Size;
+                        }
+                        catch
+                        {
+
+                        }
+
+                        row.Cells[(int)WatchRowColumns.AskQty].Value = _1502pkt.Touchline.AskInfo.Size;
+                        //askqty = _1502pkt.Touchline.AskInfo.Size;
+                        try
+                        {
+                            oldValue = double.Parse(row.Cells[(int)WatchRowColumns.LTP].Value.ToString());
+                            watchRow.LTP = _1502pkt.Touchline.LastTradedPrice;
+                        }
+                        catch
+                        {
+
+                        }
+
+                        row.Cells[((int)WatchRowColumns.LTP)].Value = _1502pkt.Touchline.LastTradedPrice;
+                        //Data1.LTP = _1502pkt.Touchline.LastTradedPrice;
+                        try
+                        {
+                            oldValue = double.Parse(row.Cells[(int)WatchRowColumns.PercentChange].Value.ToString());
+                            watchRow.PercentChange = _1502pkt.Touchline.PercentChange;
+                        }
+                        catch
+                        {
+
+                        }
+
+                        row.Cells[(int)WatchRowColumns.PercentChange].Value = _1502pkt.Touchline.PercentChange;
+                        //Data1.PercentChange = _1502pkt.Touchline.PercentChange;
+                        try
+                        {
+                            oldValue = double.Parse(row.Cells[(int)WatchRowColumns.ATP].Value.ToString());
+                            watchRow.ATP = _1502pkt.Touchline.AverageTradedPrice;
+                        }
+                        catch
+                        {
+
+                        }
+
+                        row.Cells[(int)WatchRowColumns.ATP].Value = _1502pkt.Touchline.AverageTradedPrice;
+                        //Data1.ATP = _1502pkt.Touchline.AverageTradedPrice;
+                        try
+                        {
+                            oldValue = double.Parse(row.Cells[(int)WatchRowColumns.Volume].Value.ToString());
+                            watchRow.Volume = _1502pkt.Touchline.TotalTradedQuantity;
+                        }
+                        catch
+                        {
+
+                        }
+
+                        row.Cells[(int)WatchRowColumns.Volume].Value = _1502pkt.Touchline.TotalTradedQuantity;
+                        //Data1.Volume = _1502pkt.Touchline.TotalTradedQuantity;
+                        try
+                        {
+                            oldValue = double.Parse(row.Cells[(int)WatchRowColumns.Open].Value.ToString());
+                            watchRow.Open = _1502pkt.Touchline.Open;
+                        }
+                        catch
+                        {
+
+                        }
+
+                        row.Cells[(int)WatchRowColumns.Open].Value = _1502pkt.Touchline.Open;
+                        //Data1.Open = _1502pkt.Touchline.Open;
+                        try
+                        {
+                            oldValue = double.Parse(row.Cells[(int)WatchRowColumns.High].Value.ToString());
+                            watchRow.High = _1502pkt.Touchline.High;
+                        }
+                        catch
+                        {
+
+                        }
+
+                        row.Cells[(int)WatchRowColumns.High].Value = _1502pkt.Touchline.High;
+                        //high = _1502pkt.Touchline.High;
+                        try
+                        {
+                            oldValue = double.Parse(row.Cells[(int)WatchRowColumns.Low].Value.ToString());
+                            watchRow.Low = _1502pkt.Touchline.Low;
+                        }
+                        catch
+                        {
+
+                        }
+
+                        row.Cells[(int)WatchRowColumns.Low].Value = _1502pkt.Touchline.Low;
+                        //low = _1502pkt.Touchline.Low;
+                        try
+                        {
+                            oldValue = double.Parse(row.Cells[(int)WatchRowColumns.PreClose].Value.ToString());
+                            watchRow.PreClose = _1502pkt.Touchline.Close;
+                        }
+                        catch
+                        {
+
+                        }
+
+                        row.Cells[(int)WatchRowColumns.PreClose].Value = _1502pkt.Touchline.Close;
+                        //Data1.PreClose = _1502pkt.Touchline.Close;
+
+
+                        if (double.Parse(row.Cells[(int)WatchRowColumns.LTP].Value.ToString()) <= double.Parse(row.Cells[(int)WatchRowColumns.Low].Value.ToString()))
+                        {
+                            row.DefaultCellStyle.BackColor = Color.SandyBrown;
+                        }
+                        else if (double.Parse(row.Cells[(int)WatchRowColumns.LTP].Value.ToString()) >= double.Parse(row.Cells[(int)WatchRowColumns.High].Value.ToString()))
+                        {
+                            row.DefaultCellStyle.BackColor = Color.GreenYellow;
+                        }
+                        else
+                        {
+
+                            row.DefaultCellStyle.BackColor = Color.WhiteSmoke;
+                        }
+                        Thread trd = new Thread(AppDatabase.Inventory.Instance().UpdatePosition);
+                        trd.Start();
+                        trd.Join();
+                        trd.Abort();
                     }
-                    catch
-                    {
-
-                    }
-
-                    row.Cells[(int)WatchRowColumns.BidQty].Value = _1502pkt.Touchline.BidInfo.Size;
-                    bidqty = _1502pkt.Touchline.BidInfo.Size;
-                    try
-                    {
-                        oldValue = double.Parse(row.Cells[(int)WatchRowColumns.BidPrice].Value.ToString());
-                        watchRow.BidPrice = _1502pkt.Touchline.BidInfo.Price;
-                    }
-                    catch
-                    {
-
-                    }
-
-                    row.Cells[(int)WatchRowColumns.BidPrice].Value = _1502pkt.Touchline.BidInfo.Price;
-                    bidprice = _1502pkt.Touchline.BidInfo.Price;
-                    try
-                    {
-                        oldValue = double.Parse(row.Cells[(int)WatchRowColumns.AskPrice].Value.ToString());
-                        watchRow.AskPrice = _1502pkt.Touchline.AskInfo.Price;
-                    }
-                    catch
-                    {
-
-                    }
-
-                    row.Cells[(int)WatchRowColumns.AskPrice].Value = _1502pkt.Touchline.AskInfo.Price;
-                    askprice = _1502pkt.Touchline.AskInfo.Price;
-                    try
-                    {
-                        oldValue = double.Parse(row.Cells[(int)WatchRowColumns.AskQty].Value.ToString());
-                        watchRow.AskQty = _1502pkt.Touchline.AskInfo.Size;
-                    }
-                    catch
-                    {
-
-                    }
-
-                    row.Cells[(int)WatchRowColumns.AskQty].Value = _1502pkt.Touchline.AskInfo.Size;
-                    askqty = _1502pkt.Touchline.AskInfo.Size;
-                    try
-                    {
-                        oldValue = double.Parse(row.Cells[(int)WatchRowColumns.LTP].Value.ToString());
-                        watchRow.LTP = _1502pkt.Touchline.LastTradedPrice;
-                    }
-                    catch
-                    {
-
-                    }
-
-                    row.Cells[((int)WatchRowColumns.LTP)].Value = _1502pkt.Touchline.LastTradedPrice;
-                    Data1.LTP = _1502pkt.Touchline.LastTradedPrice;
-                    try
-                    {
-                        oldValue = double.Parse(row.Cells[(int)WatchRowColumns.PercentChange].Value.ToString());
-                        watchRow.PercentChange = _1502pkt.Touchline.PercentChange;
-                    }
-                    catch
-                    {
-
-                    }
-
-                    row.Cells[(int)WatchRowColumns.PercentChange].Value = _1502pkt.Touchline.PercentChange;
-                    Data1.PercentChange = _1502pkt.Touchline.PercentChange;
-                    try
-                    {
-                        oldValue = double.Parse(row.Cells[(int)WatchRowColumns.ATP].Value.ToString());
-                        watchRow.ATP = _1502pkt.Touchline.AverageTradedPrice;
-                    }
-                    catch
-                    {
-
-                    }
-
-                    row.Cells[(int)WatchRowColumns.ATP].Value = _1502pkt.Touchline.AverageTradedPrice;
-                    Data1.ATP = _1502pkt.Touchline.AverageTradedPrice;
-                    try
-                    {
-                        oldValue = double.Parse(row.Cells[(int)WatchRowColumns.Volume].Value.ToString());
-                        watchRow.Volume = _1502pkt.Touchline.TotalTradedQuantity;
-                    }
-                    catch
-                    {
-
-                    }
-
-                    row.Cells[(int)WatchRowColumns.Volume].Value = _1502pkt.Touchline.TotalTradedQuantity;
-                    Data1.Volume = _1502pkt.Touchline.TotalTradedQuantity;
-                    try
-                    {
-                        oldValue = double.Parse(row.Cells[(int)WatchRowColumns.Open].Value.ToString());
-                        watchRow.Open = _1502pkt.Touchline.Open;
-                    }
-                    catch
-                    {
-
-                    }
-
-                    row.Cells[(int)WatchRowColumns.Open].Value = _1502pkt.Touchline.Open;
-                    Data1.Open = _1502pkt.Touchline.Open;
-                    try
-                    {
-                        oldValue = double.Parse(row.Cells[(int)WatchRowColumns.High].Value.ToString());
-                        watchRow.High = _1502pkt.Touchline.High;
-                    }
-                    catch
-                    {
-
-                    }
-
-                    row.Cells[(int)WatchRowColumns.High].Value = _1502pkt.Touchline.High;
-                    high = _1502pkt.Touchline.High;
-                    try
-                    {
-                        oldValue = double.Parse(row.Cells[(int)WatchRowColumns.Low].Value.ToString());
-                        watchRow.Low = _1502pkt.Touchline.Low;
-                    }
-                    catch
-                    {
-
-                    }
-
-                    row.Cells[(int)WatchRowColumns.Low].Value = _1502pkt.Touchline.Low;
-                    low = _1502pkt.Touchline.Low;
-                    try
-                    {
-                        oldValue = double.Parse(row.Cells[(int)WatchRowColumns.PreClose].Value.ToString());
-                        watchRow.PreClose = _1502pkt.Touchline.Close;
-                    }
-                    catch
-                    {
-
-                    }
-
-                    row.Cells[(int)WatchRowColumns.PreClose].Value = _1502pkt.Touchline.Close;
-                    Data1.PreClose = _1502pkt.Touchline.Close;
-
-
-                    if (double.Parse(row.Cells[(int)WatchRowColumns.LTP].Value.ToString()) <= double.Parse(row.Cells[(int)WatchRowColumns.Low].Value.ToString()))
-                    {
-                        row.DefaultCellStyle.BackColor = Color.SandyBrown;
-                    }
-                    else if (double.Parse(row.Cells[(int)WatchRowColumns.LTP].Value.ToString()) >= double.Parse(row.Cells[(int)WatchRowColumns.High].Value.ToString()))
-                    {
-                        row.DefaultCellStyle.BackColor = Color.GreenYellow;
-                    }
-                    else
-                    {
-
-                        row.DefaultCellStyle.BackColor = Color.WhiteSmoke;
-                    }
-                    Thread trd = new Thread(AppDatabase.Inventory.Instance().UpdatePosition);
-                    trd.Start();
-                    trd.Join();
-                    trd.Abort();
                 }
             }
+            catch { }
 
         }
 
@@ -382,6 +387,7 @@ namespace UI
 
         }
 
+
         private void toolStripComboBoxStrike_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -403,7 +409,7 @@ namespace UI
             }
             finally
             {
-                //dataGridViewWatch.Focus();
+                dataGridViewWatch.Focus();
             }
         }
 
@@ -424,11 +430,10 @@ namespace UI
             }
             else if (e.KeyCode == Keys.Enter)
             {
-
                 try
                 {
                     var security = Inventory.Instance().securities.Where(item => item.Description == toolStripLabelScript.Text).FirstOrDefault();
-                    watchRow = new WatchRow();
+                    
                     watchRow.exchangeSegment = security.exchangeSegment;
                     watchRow.instrumentId = security.exchangeInstrumentID;
                     watchRow.TradingSymbol = security.Description;
@@ -453,7 +458,7 @@ namespace UI
 
         private void toolStripComboBoxOptionType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //dataGridViewWatch.Focus();
+            dataGridViewWatch.Focus();
         }
 
         private void netPositionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -478,7 +483,7 @@ namespace UI
 
         private void dataGridViewWatch_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if(e.ColumnIndex == 3)
+            /*if (e.ColumnIndex == 3)
             {
                 if (bidprice < low)
                 {
@@ -515,7 +520,7 @@ namespace UI
             else if (watchRow.AskPrice == watchRow.Low && e.ColumnIndex == 4)
             {
                 //e.CellStyle.BackColor = Color.WhiteSmoke;
-            }
+            }*/
         }
     }
 }

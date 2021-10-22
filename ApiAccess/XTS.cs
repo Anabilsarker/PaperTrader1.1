@@ -36,12 +36,12 @@ namespace ApiAccess
 
         public async Task Login()
         {
-            string secrateKey = System.Configuration.ConfigurationManager.AppSettings["secrateKey"];
-            string apiKey = System.Configuration.ConfigurationManager.AppSettings["apiKey"];
+            string secretKey = "Asxo532#gY";
+            string apiKey = "e16c965046e51516c3e171";
             var values = new Dictionary<string, string>
             {
 
-                { "secretKey",secrateKey },
+                { "secretKey",secretKey },
                 { "appKey", apiKey },
                 { "source", "WebAPI" }
 
@@ -88,7 +88,9 @@ namespace ApiAccess
             };
             var content = new FormUrlEncodedContent(values);
             string masterDataUri = apiClient.BaseAddress.AbsoluteUri + "/instruments/master";
-            using (HttpResponseMessage responseMessage = await XTS.apiClient.PostAsync(masterDataUri, content))
+            HttpClient httpClient = new HttpClient();
+            httpClient.Timeout = TimeSpan.FromMinutes(10);
+            using (HttpResponseMessage responseMessage = await httpClient.PostAsync(masterDataUri, content))
             {
                 MasterResponse masterResponse = await responseMessage.Content.ReadAsAsync<MasterResponse>();
                 Inventory.Instance().contractFile.ParseAndWriteMasterData(masterResponse.result);
